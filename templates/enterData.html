@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body>
+<link href="/home/akshala/Documents/IIITD/summer_first_year/moneyManage/static/styleSheet_dataPage.css" rel="stylesheet" type="text/css">
+<h1>Money Manager</h1>
+<p>Make an entry</p>
+<img src="/home/akshala/Documents/IIITD/summer_first_year/moneyManage/templates/images/enterData.jpg" alt="HTML5 Icon" style="width:550px;height:400px;">
+<br>
+
+ <form>
+  description:<br>
+  <input type="text" name="description" placeholder="Enter description"><br>
+  <br>
+  expenditure:<br>
+  <input type="text" name="expenditure" placeholder="Enter expenditure amount"><br>
+  <br>
+  category:<br>
+  <select category="category">
+    <option value=""></option>
+    <option value="food">food</option>
+    <option value="transport">transport</option>
+    <option value="grocery">grocery</option>
+    <option value="miscellaneous">miscellaneous</option>
+  </select>
+  <br>
+  <br>
+  date:<br>
+  <input type="date" name="date">
+  <br>
+</form> 
+<br>
+<div class="wrapper">
+<button type="button" onclick="getData()">Submit</button>
+</div>
+
+
+<p id="demo"></p>
+
+<script>
+function postData() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange=function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("POST", "/moneymanager/expenditurerecords", true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>
